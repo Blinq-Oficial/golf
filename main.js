@@ -1,16 +1,3 @@
-// ── Lenis Smooth Scroll ──
-const lenis = new Lenis({
-  duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  smoothWheel: true,
-});
-
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
-
 // ── Scroll Reveal (Staggered Cascade) ──
 document.addEventListener('DOMContentLoaded', () => {
   const reveals = document.querySelectorAll('.reveal');
@@ -25,11 +12,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   reveals.forEach(el => revealObserver.observe(el));
 
+  // ── Networking Subtitle Fade-In ──
+  const netSubtitle = document.querySelector('.net-subtitle-reveal');
+  if (netSubtitle) {
+    const netObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          netObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    netObserver.observe(netSubtitle);
+  }
+
   // ── Navbar Scroll ──
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
-  });
+  }, { passive: true });
 
   // ── Parallax on scroll ──
   const parallaxEls = document.querySelectorAll('[data-parallax]');
@@ -66,6 +67,24 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.style.transition = 'none';
     });
   });
+
+  // ── Mobile Hamburger Menu ──
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('mobile-open');
+      hamburger.classList.toggle('active');
+      document.body.classList.toggle('nav-open');
+    });
+    navLinks.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('mobile-open');
+        hamburger.classList.remove('active');
+        document.body.classList.remove('nav-open');
+      });
+    });
+  }
 });
 
 // ── Modal ──
@@ -90,6 +109,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ── Form ──
+// TODO: Conectar a WhatsApp o backend real según indicación del cliente
 function submitForm(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button[type="submit"]');

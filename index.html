@@ -4,7 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart Meeting | Ryder Golf Business Trip España 2026</title>
-  <meta name="description" content="Una experiencia integral diseñada para conectar golf, negocios, cultura y estilo de vida al más alto nivel en España.">
+  <meta name="description" content="Una experiencia integral diseñada para conectar golf, negocios, cultura y estilo de vida al más alto nivel en España. Madrid, Sevilla, Ronda y Málaga — 27 de septiembre al 7 de octubre de 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://smartmeeting.pro/golf">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Smart Meeting | Ryder Golf Business Trip España 2026">
+  <meta property="og:description" content="Golf, negocios, cultura y estilo de vida al más alto nivel en España. Septiembre — Octubre 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://smartmeeting.pro/golf">
+  <meta property="og:image" content="assets/bg_golf_spain.png">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Smart Meeting | Ryder Golf Business Trip España 2026">
+  <meta name="twitter:description" content="Golf, negocios, cultura y estilo de vida al más alto nivel en España. Septiembre — Octubre 2026.">
+  <meta name="twitter:image" content="assets/bg_golf_spain.png">
+
   <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
@@ -13,26 +30,31 @@
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="#" class="nav-logo" onclick="window.scrollTo(0,0)">
+      <a href="#" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
         <i class="ph ph-golf" style="color: var(--color-gold); font-size: 1.8rem;"></i>
         <span>SMART<span class="gold-text">MEETING</span></span>
       </a>
       <div class="nav-links">
-        <a href="#pilares" class="nav-link">Pilares</a>
-        <a href="#perfil" class="nav-link">Perfil</a>
         <a href="#destinos" class="nav-link">Itinerario</a>
-        <a href="#gastronomia" class="nav-link">Gastronomía</a>
+        <a href="#gastronomia" class="nav-link">Experiencia</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#pilares" class="nav-link">Nosotros</a>
         <div class="magnetic-wrap">
-          <button class="btn btn-outline" id="navCta" onclick="openModal()">Solicitar Acceso</button>
+          <button class="btn btn-nav" id="navCta" onclick="openModal()">Solicitar Acceso</button>
         </div>
       </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
   <!-- Hero -->
   <header class="hero">
     <div class="hero-bg">
-      <img src="https://33q8gf8dxxsd.b-cdn.net/w_1920/6r8ifu662xhe-zagaleta-blogpost-header.jpg" alt="Zagaleta Golf Club" data-parallax="0.3">
+      <img src="https://33q8gf8dxxsd.b-cdn.net/w_1920/6r8ifu662xhe-zagaleta-blogpost-header.jpg" alt="Campo de golf de lujo Zagaleta en la Costa del Sol, España" data-parallax="0.3">
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-gradient"></div>
@@ -60,74 +82,17 @@
     </div>
   </header>
 
-  <!-- Los Cuatro Pilares -->
-  <section id="pilares" class="section section-cream">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-bar"></div>
-        <h2 class="section-title">Los Cuatro Pilares</h2>
-      </div>
-      <div class="pilares-grid">
-        <div class="pilar-card reveal stagger-1">
-          <i class="ph ph-golf pilar-icon"></i>
-          <h3 class="pilar-title">Golf</h3>
-          <p class="pilar-desc">Espíritu Ryder en Madrid, formato relacional en Sevilla y jornadas exclusivas en la Costa del Sol.</p>
-        </div>
-        <div class="pilar-card reveal stagger-2">
-          <i class="ph ph-handshake pilar-icon"></i>
-          <h3 class="pilar-title">Negocios</h3>
-          <p class="pilar-desc">Networking de alto nivel con la Red Internacional Smart Meeting en clubes privados de élite.</p>
-        </div>
-        <div class="pilar-card reveal stagger-3">
-          <i class="ph ph-wine pilar-icon"></i>
-          <h3 class="pilar-title">Enología</h3>
-          <p class="pilar-desc">Ruta sensorial por Vinology y Bodegas Excelencia. El vino como hilo conductor del éxito.</p>
-        </div>
-        <div class="pilar-card reveal stagger-4">
-          <i class="ph ph-bank pilar-icon"></i>
-          <h3 class="pilar-title">Cultura</h3>
-          <p class="pilar-desc">Inmersión en el patrimonio histórico de Ronda, el arte de Sevilla y la modernidad de Madrid.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Perfil del Grupo -->
-  <section id="perfil" class="section section-cream">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-bar"></div>
-        <h2 class="section-title">Perfil del Grupo</h2>
-      </div>
-      <div class="perfil-grid">
-        <div class="perfil-numbers reveal">
-          <div class="number-block">
-            <span class="number-val crimson">30</span>
-            <span class="number-label">Jugadores</span>
-          </div>
-          <div class="number-block">
-            <span class="number-val gold">20</span>
-            <span class="number-label">Acompañantes</span>
-          </div>
-        </div>
-        <div class="perfil-text reveal stagger-2">
-          <h3>Una Experiencia Integral</h3>
-          <p>Diseñado para que cada miembro del grupo encuentre valor absoluto. Mientras unos conquistan el green, otros exploran la riqueza social, empresarial y cultural de España.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Destinos -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- Ruta del Viaje (moved up — right after hero) -->
+  <!-- ═══════════════════════════════════════════════════ -->
   <section id="destinos" class="section section-navy destinos-section-video">
-    <!-- Normal Playing Video Background -->
-    <div class="destinos-video-bg-normal">
+    <div class="video-bg-wrapper">
       <video autoplay loop muted playsinline>
         <source src="assets/video/destinos-bg.mp4" type="video/mp4">
       </video>
-      <div class="destinos-video-overlay-normal"></div>
+      <div class="video-bg-overlay"></div>
     </div>
-    
+
     <div class="container" style="position: relative; z-index: 2;">
       <div class="section-header reveal">
         <div class="section-bar"></div>
@@ -137,7 +102,7 @@
       <!-- Madrid -->
       <div class="split-row reveal">
         <div class="split-img-wrapper">
-          <img src="https://media.istockphoto.com/id/1059076792/photo/madrid-city-skyline-gran-via-street-twilight-spain.jpg?s=612x612&w=0&k=20&c=jQbBLWmR46lkJl-_OsYKLcykBweSNpf61H6NmcaHQxE=" alt="Madrid" class="split-img">
+          <img src="https://media.istockphoto.com/id/1059076792/photo/madrid-city-skyline-gran-via-street-twilight-spain.jpg?s=612x612&w=0&k=20&c=jQbBLWmR46lkJl-_OsYKLcykBweSNpf61H6NmcaHQxE=" alt="Skyline nocturno de Madrid con la Gran Vía iluminada" class="split-img">
         </div>
         <div class="split-content">
           <span class="uppercase-tracking gold-text split-label">Destino 01 — Días 1-4</span>
@@ -154,7 +119,7 @@
       <!-- Sevilla -->
       <div class="split-row reverse reveal">
         <div class="split-img-wrapper">
-          <img src="https://media.istockphoto.com/id/1920369714/photo/seville-cathedral-and-giralda-tower-during-beautiful-sunny-day-in-seville.jpg?s=612x612&w=0&k=20&c=2OoS4VXj95Wbv1UpB5Cp951dwcWJEh4bVsUSxVXiNN0=" alt="Sevilla" class="split-img">
+          <img src="https://media.istockphoto.com/id/1920369714/photo/seville-cathedral-and-giralda-tower-during-beautiful-sunny-day-in-seville.jpg?s=612x612&w=0&k=20&c=2OoS4VXj95Wbv1UpB5Cp951dwcWJEh4bVsUSxVXiNN0=" alt="Catedral de Sevilla y torre de la Giralda bajo cielo azul" class="split-img">
         </div>
         <div class="split-content">
           <span class="uppercase-tracking gold-text split-label">Destino 02 — Días 5-7</span>
@@ -171,7 +136,7 @@
       <!-- Ronda -->
       <div class="split-row reveal">
         <div class="split-img-wrapper">
-          <img src="https://mikeputnamphoto.com/wp-content/uploads/2023/04/New-Bridge-Ronda-Spain.jpg" alt="Ronda" class="split-img">
+          <img src="https://mikeputnamphoto.com/wp-content/uploads/2023/04/New-Bridge-Ronda-Spain.jpg" alt="Puente Nuevo sobre el Tajo de Ronda al atardecer" class="split-img">
         </div>
         <div class="split-content">
           <span class="uppercase-tracking gold-text split-label">Destino 03 — Día 8</span>
@@ -187,7 +152,7 @@
       <!-- Málaga -->
       <div class="split-row reverse reveal">
         <div class="split-img-wrapper">
-          <img src="https://www.southolesails.com/wp-content/uploads/IMG-20260129-WA0010-1024x768.jpg" alt="Málaga" class="split-img">
+          <img src="https://www.southolesails.com/wp-content/uploads/IMG-20260129-WA0010-1024x768.jpg" alt="Puerto de Málaga con veleros frente al Mediterráneo" class="split-img">
         </div>
         <div class="split-content">
           <span class="uppercase-tracking gold-text split-label">Destino 04 — Días 9-11</span>
@@ -203,20 +168,29 @@
     </div>
   </section>
 
-  <!-- Gastronomía -->
-  <section id="gastronomia" class="section section-cream">
-    <div class="container">
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- Experiencia Gastronómica (with video background) -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="gastronomia" class="section section-navy gastro-section-video">
+    <div class="video-bg-wrapper">
+      <video autoplay loop muted playsinline>
+        <source src="assets/video/golf-bg.mp4" type="video/mp4">
+      </video>
+      <div class="video-bg-overlay"></div>
+    </div>
+
+    <div class="container" style="position: relative; z-index: 2;">
       <div class="section-header reveal">
         <div class="section-bar"></div>
-        <h2 class="section-title">Experiencia Gastronómica</h2>
+        <h2 class="section-title" style="color: white;">Experiencia Gastronómica</h2>
       </div>
       <div class="gastro-grid">
         <div class="reveal">
-          <img src="https://www.cellartours.com/wp-content/uploads/2017/09/top-10-recommmend-restaurants-spain-e1505887274304.jpg" alt="Alta gastronomía" class="gastro-img">
+          <img src="assets/gastronomy.png" alt="Alta gastronomía gourmet en viaje de negocios de golf por España — experiencia culinaria exclusiva" class="gastro-img">
         </div>
-        <div class="reveal stagger-2">
-          <h2 style="font-size: var(--text-2xl); margin-bottom: var(--s3);">El Sabor del Éxito</h2>
-          <p class="gastro-quote" style="font-style:italic; font-family:var(--font-serif); font-size:var(--text-lg); color:var(--color-text-muted); margin-bottom:var(--s4); line-height:1.6;">"En cada copa, el vino despliega su poesía líquida, tintando el tiempo con los matices de la tierra."</p>
+        <div class="gastro-text-col reveal stagger-2">
+          <h2>El Sabor del Éxito</h2>
+          <p class="gastro-quote">"En cada copa, el vino despliega su poesía líquida, tintando el tiempo con los matices de la tierra."</p>
           <ul class="star-list">
             <li><i class="ph ph-star-four star-icon" style="font-size:1.3rem;"></i><span>Almuerzos de negocios en locaciones exclusivas.</span></li>
             <li><i class="ph ph-star-four star-icon" style="font-size:1.3rem;"></i><span>Catas privadas en las cunas del Tempranillo y el Jerez.</span></li>
@@ -227,39 +201,44 @@
     </div>
   </section>
 
-  <!-- Networking -->
-  <section class="section section-deep net-bg">
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- Networking Exclusivo -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="networking" class="section section-deep net-bg">
     <div class="net-bg-img">
-      <img src="https://astorianevents.com/wp-content/uploads/2024/10/W_043_6673-1-scaled.jpg" alt="Networking Event">
+      <img src="https://astorianevents.com/wp-content/uploads/2024/10/W_043_6673-1-scaled.jpg" alt="Evento de networking exclusivo en salón de gala">
     </div>
     <div class="container net-content">
       <div class="section-header reveal">
-        <div class="section-bar" style="background: var(--color-gold);"></div>
+        <div class="section-bar"></div>
+        <p class="bridge-pretitle">De la alta cocina al cierre de tratos.</p>
         <h2 class="section-title" style="color: white;">Networking Exclusivo</h2>
-        <p class="section-subtitle" style="color: oklch(0.65 0 0);">Red Smart Meeting — Acceda a una plataforma tecnológica integrada donde líderes, inversores y profesionales convergen para generar oportunidades reales.</p>
+        <p class="section-subtitle net-subtitle-reveal" style="color: oklch(0.60 0 0);">Red Smart Meeting — Acceda a una plataforma tecnológica integrada donde líderes, inversores y profesionales convergen para generar oportunidades reales.</p>
       </div>
       <div class="net-cards">
         <div class="net-card reveal stagger-1">
           <i class="ph ph-users-three net-card-icon"></i>
           <h4>Acceso VIP</h4>
-          <p>Acceso a clubes privados exclusivos.</p>
+          <p>Acceso a clubes privados exclusivos en las principales capitales.</p>
         </div>
         <div class="net-card reveal stagger-2">
           <i class="ph ph-globe-hemisphere-west net-card-icon"></i>
           <h4>Presencia Global</h4>
-          <p>Presencia en las principales capitales económicas.</p>
+          <p>Presencia en las principales capitales económicas del mundo.</p>
         </div>
         <div class="net-card reveal stagger-3">
           <i class="ph ph-scales net-card-icon"></i>
           <h4>Valores</h4>
-          <p>Ética, Camaradería e Impacto.</p>
+          <p>Ética, Camaradería e Impacto como pilares fundamentales.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Servicios VIP -->
-  <section class="section section-cream">
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- Servicios VIP Incluidos -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="servicios" class="section section-navy">
     <div class="container">
       <div class="section-header reveal">
         <div class="section-bar"></div>
@@ -281,10 +260,70 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- Nuestra Esencia (Two-Column: Pilares | Perfil) -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="pilares" class="section section-navy esencia-section">
+    <div class="container">
+      <div class="esencia-layout">
+
+        <!-- Left Panel: Pilares -->
+        <div class="esencia-left reveal">
+          <h2 class="esencia-title">Nuestra Esencia</h2>
+          <div class="pilares-grid-compact">
+            <div class="pilar-card-mini">
+              <i class="ph ph-golf pilar-icon-mini"></i>
+              <h3 class="pilar-title-mini">Golf</h3>
+              <p class="pilar-desc-mini">Espíritu Ryder en Madrid, formato relacional en Sevilla y jornadas exclusivas en la Costa del Sol.</p>
+            </div>
+            <div class="pilar-card-mini">
+              <i class="ph ph-handshake pilar-icon-mini"></i>
+              <h3 class="pilar-title-mini">Negocios</h3>
+              <p class="pilar-desc-mini">Networking de alto nivel con la Red Internacional Smart Meeting en clubes privados de élite.</p>
+            </div>
+            <div class="pilar-card-mini">
+              <i class="ph ph-wine pilar-icon-mini"></i>
+              <h3 class="pilar-title-mini">Enología</h3>
+              <p class="pilar-desc-mini">Ruta sensorial por Vinology y Bodegas Excelencia. El vino como hilo conductor del éxito.</p>
+            </div>
+            <div class="pilar-card-mini">
+              <i class="ph ph-bank pilar-icon-mini"></i>
+              <h3 class="pilar-title-mini">Cultura</h3>
+              <p class="pilar-desc-mini">Inmersión en el patrimonio histórico de Ronda, el arte de Sevilla y la modernidad de Madrid.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Panel: Perfil del Grupo -->
+        <div class="esencia-right reveal stagger-2">
+          <h2 class="esencia-title">Perfil del Grupo</h2>
+          <div class="perfil-numbers-stacked">
+            <div class="number-block-lg">
+              <span class="number-val-lg crimson">30</span>
+              <span class="number-label-lg">Jugadores</span>
+            </div>
+            <div class="number-block-lg">
+              <span class="number-val-lg gold">20</span>
+              <span class="number-label-lg">Acompañantes</span>
+            </div>
+          </div>
+          <p class="perfil-urgency">Plazas estrictamente limitadas · Asignación por invitación</p>
+          <div class="perfil-text-block">
+            <h3>Una Experiencia Integral</h3>
+            <p>Diseñado para que cada miembro del grupo encuentre valor absoluto. Mientras unos conquistan el green, otros exploran la riqueza social, empresarial y cultural de España.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════ -->
   <!-- Cierre -->
+  <!-- ═══════════════════════════════════════════════════ -->
   <section class="cierre">
     <div class="cierre-bg">
-      <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?q=80&w=2070&auto=format&fit=crop" alt="Ryder Cup" data-parallax="0.2">
+      <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?q=80&w=2070&auto=format&fit=crop" alt="Campo de golf profesional con bandera al atardecer" data-parallax="0.2">
     </div>
     <div class="cierre-overlay"></div>
     <div class="container cierre-content reveal">
@@ -305,42 +344,40 @@
         <span>SMART<span class="gold-text">MEETING</span></span>
       </div>
       <div class="footer-links">
-        <a href="mailto:info@smartmeeting.pro" class="footer-link"><i class="ph ph-envelope-simple"></i> info@smartmeeting.pro</a>
-        <a href="https://smartmeeting.pro" target="_blank" class="footer-link"><i class="ph ph-globe"></i> smartmeeting.pro</a>
+        <a href="#" class="footer-link"><i class="ph ph-envelope-simple"></i> [correo@delcliente.com]</a>
+        <a href="#" class="footer-link"><i class="ph ph-globe"></i> [sitioweb-del-cliente.com]</a>
       </div>
-      <div class="footer-copy">&copy; 2026 Smart Meeting Ryder Golf Business Trip España. Todos los derechos reservados.</div>
+      <div class="footer-copy">&copy; 2026 [Nombre del Cliente]. Todos los derechos reservados.</div>
     </div>
   </footer>
 
   <!-- Modal -->
   <div class="modal-overlay" id="contactModal">
     <div class="modal-content">
-      <button class="modal-close" onclick="closeModal()"><i class="ph ph-x" style="font-size: 1.4rem;"></i></button>
+      <button class="modal-close" onclick="closeModal()" aria-label="Cerrar formulario"><i class="ph ph-x" style="font-size: 1.4rem;"></i></button>
       <div style="text-align: center; margin-bottom: var(--s4);">
-        <i class="ph ph-envelope-simple-open gold-text" style="font-size: 2.2rem; margin-bottom: var(--s1); display: block;"></i>
         <h3 style="font-size: var(--text-2xl); color: white; margin-bottom: var(--s1);">Solicitud de Acceso</h3>
-        <p style="color: oklch(0.55 0 0); font-size: var(--text-sm);">Déjenos sus datos para evaluar su perfil y enviarle la invitación oficial.</p>
+        <p style="color: oklch(0.60 0 0); font-size: var(--text-sm);">Déjenos sus datos para evaluar su perfil y enviarle la invitación oficial.</p>
       </div>
       <form id="leadForm" onsubmit="submitForm(event)">
         <div class="form-group">
-          <label class="form-label">Nombre Completo</label>
-          <input type="text" required class="form-input" placeholder="Ej. Carlos Mendoza">
+          <label class="form-label" for="fullName">Nombre Completo</label>
+          <input type="text" id="fullName" name="fullName" required class="form-input" placeholder="Ej. Carlos Mendoza">
         </div>
         <div class="form-group">
-          <label class="form-label">Empresa / Cargo</label>
-          <input type="text" required class="form-input" placeholder="CEO en Empresa X">
+          <label class="form-label" for="company">Empresa / Cargo</label>
+          <input type="text" id="company" name="company" required class="form-input" placeholder="CEO en Empresa X">
         </div>
         <div class="form-group">
-          <label class="form-label">Email Profesional</label>
-          <input type="email" required class="form-input" placeholder="carlos@empresa.com">
+          <label class="form-label" for="email">Email Profesional</label>
+          <input type="email" id="email" name="email" required class="form-input" placeholder="carlos@empresa.com">
         </div>
-        <button type="submit" class="btn btn-solid form-btn">Enviar Solicitud</button>
+        <button type="submit" class="btn btn-solid form-btn">Solicitar mi Invitación</button>
+        <p class="form-urgency">Proceso de selección riguroso. Cupos limitados a 30 plazas.</p>
       </form>
     </div>
   </div>
 
-  <!-- Lenis Smooth Scroll -->
-  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
