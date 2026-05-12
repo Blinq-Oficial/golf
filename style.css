@@ -175,6 +175,31 @@ img { max-width: 100%; display: block; }
   .perfil-numbers { flex-direction: row; gap: var(--s6); }
 }
 
+/* ── Normal Video Background (Destinos) ── */
+.destinos-section-video {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-navy);
+}
+.destinos-video-bg-normal {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.destinos-video-bg-normal video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.destinos-video-overlay-normal {
+  position: absolute;
+  inset: 0;
+  background: oklch(0.22 0.05 260 / 0.85); /* Navy tint overlay to ensure text legibility */
+  z-index: 1;
+}
+
 /* ── Split Destinos ── */
 .split-row { display: flex; align-items: center; gap: var(--s8); margin-bottom: var(--s16); }
 .split-row:last-child { margin-bottom: 0; }
