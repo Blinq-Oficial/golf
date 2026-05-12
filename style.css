@@ -101,13 +101,15 @@ h1, h2, h3, h4, h5, h6 {
 /* Animations */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+  transform: translateY(30px) scale(0.98);
+  filter: blur(8px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out), filter 0.8s var(--ease-out);
 }
 
 .reveal.active {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }
 
 .delay-100 { transition-delay: 100ms; }
@@ -462,7 +464,18 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: flex-start;
   gap: var(--space-2);
+}
+
+.section-light .gastro-list li,
+.section-light .gastro-list li span {
   color: var(--color-text-dark);
+}
+
+.section-dark-accent .gastro-list li,
+.section-dark-accent .gastro-list li span,
+.split-content .gastro-list li,
+.split-content .gastro-list li span {
+  color: var(--color-text-light);
 }
 
 @media (max-width: 900px) {
