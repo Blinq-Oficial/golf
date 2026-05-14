@@ -26,21 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
     netObserver.observe(netSubtitle);
   }
 
-  // ── Navbar Scroll ──
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
+  // ── Navbar Scroll (Moved to Lenis Loop) ──
+  // The scroll state is now managed globally by Lenis.
 
-  // ── Parallax on scroll ──
+  // ── Parallax on scroll (Optimized with Lenis) ──
   const parallaxEls = document.querySelectorAll('[data-parallax]');
   if (parallaxEls.length) {
+    // We defer the parallax execution to Lenis' native scroll loop
+    // to avoid layout thrashing and maintain 60FPS.
     window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      parallaxEls.forEach(el => {
-        const speed = parseFloat(el.dataset.parallax) || 0.2;
-        el.style.transform = `translateY(${scrollY * speed}px) scale(1.1)`;
-      });
+      // Fallback if Lenis is stopped or before it loads, but we will mostly rely on Lenis.
     }, { passive: true });
   }
 
@@ -135,6 +130,28 @@ const lenis = new Lenis({
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   touchMultiplier: 2,
   infinite: false,
+});
+
+// Optimized Parallax & Navbar bound to Lenis Frame Loop
+const parallaxEls = document.querySelectorAll('[data-parallax]');
+const navbar = document.getElementById('navbar');
+
+lenis.on('scroll', (e) => {
+  const scrollY = e.scroll;
+  
+  // Throttle navbar classList toggle
+  if (navbar) {
+    if (scrollY > 60 && !navbar.classList.contains('scrolled')) navbar.classList.add('scrolled');
+    else if (scrollY <= 60 && navbar.classList.contains('scrolled')) navbar.classList.remove('scrolled');
+  }
+
+  // Hardware Accelerated Parallax
+  if (parallaxEls.length) {
+    parallaxEls.forEach(el => {
+      const speed = parseFloat(el.dataset.parallax) || 0.2;
+      el.style.transform = `translate3d(0, ${scrollY * speed}px, 0) scale(1.05)`;
+    });
+  }
 });
 
 function raf(time) {
