@@ -26,18 +26,36 @@ document.addEventListener('DOMContentLoaded', () => {
     netObserver.observe(netSubtitle);
   }
 
-  // ── Navbar Scroll (Moved to Lenis Loop) ──
-  // The scroll state is now managed globally by Lenis.
-
-  // ── Parallax on scroll (Optimized with Lenis) ──
+  // ── Scroll State Variables ──
+  const navbar = document.getElementById('navbar');
   const parallaxEls = document.querySelectorAll('[data-parallax]');
-  if (parallaxEls.length) {
-    // We defer the parallax execution to Lenis' native scroll loop
-    // to avoid layout thrashing and maintain 60FPS.
-    window.addEventListener('scroll', () => {
-      // Fallback if Lenis is stopped or before it loads, but we will mostly rely on Lenis.
-    }, { passive: true });
-  }
+  let ticking = false;
+
+  // ── Optimized Native Scroll Loop ──
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        
+        // Navbar
+        if (navbar) {
+          if (scrollY > 60 && !navbar.classList.contains('scrolled')) navbar.classList.add('scrolled');
+          else if (scrollY <= 60 && navbar.classList.contains('scrolled')) navbar.classList.remove('scrolled');
+        }
+
+        // Parallax
+        if (parallaxEls.length) {
+          parallaxEls.forEach(el => {
+            const speed = parseFloat(el.dataset.parallax) || 0.2;
+            el.style.transform = `translate3d(0, ${scrollY * speed}px, 0) scale(1.05)`;
+          });
+        }
+        
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
 
   // ── Magnetic Buttons ──
   const magneticWraps = document.querySelectorAll('.magnetic-wrap');
@@ -122,44 +140,6 @@ function submitForm(e) {
     }, 2000);
   }, 1500);
 }
-
-// ── Smooth Scroll (Lenis) ──
-const lenis = new Lenis({
-  autoRaf: true,
-  duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  touchMultiplier: 2,
-  infinite: false,
-});
-
-// Optimized Parallax & Navbar bound to Lenis Frame Loop
-const parallaxEls = document.querySelectorAll('[data-parallax]');
-const navbar = document.getElementById('navbar');
-
-lenis.on('scroll', (e) => {
-  const scrollY = e.scroll;
-  
-  // Throttle navbar classList toggle
-  if (navbar) {
-    if (scrollY > 60 && !navbar.classList.contains('scrolled')) navbar.classList.add('scrolled');
-    else if (scrollY <= 60 && navbar.classList.contains('scrolled')) navbar.classList.remove('scrolled');
-  }
-
-  // Hardware Accelerated Parallax
-  if (parallaxEls.length) {
-    parallaxEls.forEach(el => {
-      const speed = parseFloat(el.dataset.parallax) || 0.2;
-      el.style.transform = `translate3d(0, ${scrollY * speed}px, 0) scale(1.05)`;
-    });
-  }
-});
-
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
 
 // ── Translation Logic ──
 let currentLang = 'es';
